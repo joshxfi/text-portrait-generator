@@ -24,6 +24,7 @@ const Output: React.FC<OutputProps> = ({
           backgroundImage: `url(${photoUrl})`,
           fontSize,
           lineHeight: `${lineHeight}px`,
+          WebkitTextFillColor: 'transparent',
         }}
         className={`${
           grayscale && 'grayscale'
