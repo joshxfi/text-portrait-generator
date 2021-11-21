@@ -44,8 +44,8 @@ const App: React.FC = () => {
   if (showFull) return <Output {...outputProps} />;
 
   return (
-    <main className='flex mx-auto justify-center mt-8 space-x-4'>
-      <div className='p-8 bg-secondary text-gray-200 rounded-lg flex flex-col items-center w-[360px] space-y-2'>
+    <main className='flex mx-auto items-center lg:justify-center mt-3 lg:mt-8 lg:space-x-4 space-y-4 lg:space-y-0 flex-col lg:flex-row'>
+      <div className='p-8 bg-secondary text-gray-200 rounded-lg flex flex-col items-center w-[95%] lg:w-[360px] space-y-2'>
         <a
           className='btn bg-green-600  hover:bg-green-600/90 hover:shadow-lg'
           href='https://github.com/joshxfi/text-portrait-generator'
@@ -97,28 +97,30 @@ const App: React.FC = () => {
           displayValue={`Multiply Text: ${multiplyText}x`}
         />
 
-        <button
-          onClick={() => setGrayscale(!grayscale)}
-          className={`${
-            grayscale
-              ? 'bg-green-600 hover:bg-green-600/90'
-              : 'bg-gray-500 hover:bg-gray-500/90'
-          } btn hover:shadow-lg`}
-        >
-          <p>Grayscale</p>
-          <MdFilter />
-        </button>
+        <div className='space-x-3 flex w-full pt-4 lg:flex-col lg:space-x-0 lg:space-y-3'>
+          <button
+            onClick={() => setGrayscale(!grayscale)}
+            className={`${
+              grayscale
+                ? 'bg-green-600 hover:bg-green-600/90'
+                : 'bg-gray-500 hover:bg-gray-500/90'
+            } btn hover:shadow-lg`}
+          >
+            <p>Grayscale</p>
+            <MdFilter />
+          </button>
 
-        <button onClick={resetOptions} className='btn primary-bg'>
-          <p>Reset Options</p>
-          <MdRestartAlt />
-        </button>
+          <button onClick={resetOptions} className='btn primary-bg'>
+            <p>Reset Options</p>
+            <MdRestartAlt />
+          </button>
+        </div>
       </div>
 
       <div
         className={`${
           !file && 'p-8'
-        } bg-secondary rounded-lg w-[650px] h-[650px] grid place-items-center overflow-hidden`}
+        } bg-secondary rounded-lg w-[95%] lg:w-[650px] h-[500px] lg:h-[650px] grid place-items-center overflow-hidden`}
       >
         {file ? (
           <Output {...outputProps} />
