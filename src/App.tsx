@@ -1,7 +1,12 @@
 import React, { useState, useRef } from 'react';
-import Output from './components/Output';
 import { BsImageFill, BsEyeFill, BsStarFill } from 'react-icons/bs';
-import { MdArrowDropDown, MdArrowDropUp, MdFilter } from 'react-icons/md';
+import {
+  MdArrowDropDown,
+  MdArrowDropUp,
+  MdFilter,
+  MdRestartAlt,
+} from 'react-icons/md';
+import Output from './components/Output';
 
 export interface OutputProps {
   file: File | null;
@@ -31,6 +36,14 @@ const App: React.FC = () => {
     lineHeight,
     grayscale,
     multiplyText,
+  };
+
+  const resetOptions = () => {
+    setTextBg('');
+    setFontSize(16);
+    setLineHeight(10);
+    setMultiplyText(1);
+    setGrayscale(false);
   };
 
   if (showFull) return <Output {...outputProps} />;
@@ -144,6 +157,11 @@ const App: React.FC = () => {
         >
           <p>Grayscale</p>
           <MdFilter />
+        </button>
+
+        <button onClick={resetOptions} className='btn primary-bg'>
+          <p>Reset Options</p>
+          <MdRestartAlt />
         </button>
       </div>
 
