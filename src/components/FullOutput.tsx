@@ -8,7 +8,7 @@ const Output: React.FC<OutputProps> = ({ file }) => {
   const photoUrl = useMemo(() => file && URL.createObjectURL(file), [file]);
 
   return (
-    <div className='w-full h-full flex items-center justify-center bg-black overflow-hidden'>
+    <div className='h-screen flex items-center justify-center bg-black overflow-hidden'>
       <p
         style={{ backgroundImage: `url(${photoUrl})` }}
         className='leading-[10px] text-justify bg-clip-text bg-fixed bg-cover bg-no-repeat bg-center'
