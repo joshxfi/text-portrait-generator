@@ -20,7 +20,7 @@ html {
 
 @layer components {
     .btn {
-        @apply flex items-center space-x-2 justify-center py-2 w-36 rounded transition-all hover:shadow-lg;
+        @apply flex items-center space-x-2 justify-center py-2 w-full rounded transition-all hover:shadow-lg;
     }
 
     .primary-bg {
