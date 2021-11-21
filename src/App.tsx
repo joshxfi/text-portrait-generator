@@ -10,6 +10,7 @@ export interface OutputProps {
   lineHeight: number;
   grayscale: boolean;
   multiplyText: number;
+  showFull: boolean;
 }
 
 const App: React.FC = () => {
@@ -31,6 +32,7 @@ const App: React.FC = () => {
     lineHeight,
     grayscale,
     multiplyText,
+    showFull,
   };
 
   const resetOptions = () => {
@@ -44,8 +46,8 @@ const App: React.FC = () => {
   if (showFull) return <Output {...outputProps} />;
 
   return (
-    <main className='flex mx-auto items-center lg:justify-center mt-3 lg:mt-8 lg:space-x-4 space-y-4 lg:space-y-0 flex-col lg:flex-row'>
-      <div className='p-8 bg-secondary text-gray-200 rounded-lg flex flex-col items-center w-[95%] lg:w-[360px] space-y-2'>
+    <main className='flex mx-auto items-center lg:justify-center mt-3 lg:mt-8 lg:space-x-4 space-y-4 lg:space-y-0 flex-col lg:flex-row lg:h-[690px]'>
+      <div className='p-8 bg-secondary text-gray-200 rounded-lg flex flex-col items-center w-[95%] h-full lg:w-[360px] space-y-2'>
         <a
           className='btn bg-green-600  hover:bg-green-600/90 hover:shadow-lg'
           href='https://github.com/joshxfi/text-portrait-generator'
@@ -120,7 +122,7 @@ const App: React.FC = () => {
       <div
         className={`${
           !file && 'p-8'
-        } bg-secondary rounded-lg w-[95%] lg:w-[650px] h-[500px] lg:h-[650px] grid place-items-center overflow-hidden`}
+        } bg-secondary rounded-lg w-[95%] lg:w-[690px] h-[500px] lg:h-[690px] grid place-items-center overflow-hidden shadow-lg`}
       >
         {file ? (
           <Output {...outputProps} />

@@ -8,11 +8,12 @@ const Output: React.FC<OutputProps> = ({
   lineHeight,
   grayscale,
   multiplyText,
+  showFull,
 }) => {
   const photoUrl = useMemo(() => file && URL.createObjectURL(file), [file]);
 
   return (
-    <div className='w-full h-full flex items-center justify-center bg-black overflow-hidden'>
+    <div className='w-full h-full flex items-center justify-center bg-black overflow-hidden shadow-lg'>
       {!textBg && (
         <div className='text-gray-200'>
           <p>Start Typing...</p>
@@ -28,7 +29,7 @@ const Output: React.FC<OutputProps> = ({
           grayscale && 'grayscale'
         } leading-[10px] bg-clip-text bg-fixed bg-cover bg-no-repeat bg-center`}
       >
-        {Array(multiplyText)
+        {Array(showFull ? 100 : multiplyText)
           .fill(0)
           .map(() => textBg)}
       </p>
