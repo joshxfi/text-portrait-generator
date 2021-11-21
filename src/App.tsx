@@ -1,12 +1,7 @@
 import React, { useState, useRef } from 'react';
+import { Output, Option } from './components';
+import { MdFilter, MdRestartAlt } from 'react-icons/md';
 import { BsImageFill, BsEyeFill, BsStarFill } from 'react-icons/bs';
-import {
-  MdArrowDropDown,
-  MdArrowDropUp,
-  MdFilter,
-  MdRestartAlt,
-} from 'react-icons/md';
-import Output from './components/Output';
 
 export interface OutputProps {
   file: File | null;
@@ -89,63 +84,18 @@ const App: React.FC = () => {
           className='text-black resize-none w-full outline none p-4 h-[250px] outline-none rounded-lg'
         />
 
-        <div className='grid grid-cols-6 w-full gap-2'>
-          <button
-            onClick={() => setFontSize(fs => fs - 1)}
-            className='btn border border-red-500'
-          >
-            <MdArrowDropDown className='text-2xl' />
-          </button>
-
-          <p className='col-span-4 btn'>Font Size [ {fontSize}px ]</p>
-
-          <button
-            onClick={() => setFontSize(fs => fs + 1)}
-            className='btn border border-green-500'
-          >
-            <MdArrowDropUp className='text-2xl' />
-          </button>
-        </div>
-
-        <div className='h-[1px] bg-gray-600 w-full' />
-
-        <div className='grid grid-cols-6 w-full gap-2'>
-          <button
-            onClick={() => setLineHeight(lh => lh - 1)}
-            className='btn border border-red-500'
-          >
-            <MdArrowDropDown className='text-2xl' />
-          </button>
-
-          <p className='col-span-4 btn'>Spacing [ {lineHeight}px ]</p>
-
-          <button
-            onClick={() => setLineHeight(lh => lh + 1)}
-            className='btn border border-green-500'
-          >
-            <MdArrowDropUp className='text-2xl' />
-          </button>
-        </div>
-
-        <div className='h-[1px] bg-gray-600 w-full' />
-
-        <div className='grid grid-cols-6 w-full gap-2'>
-          <button
-            onClick={() => setMultiplyText(mt => mt - 1)}
-            className='btn border border-red-500'
-          >
-            <MdArrowDropDown className='text-2xl' />
-          </button>
-
-          <p className='col-span-4 btn'>Mutiply Text [ {multiplyText}x ]</p>
-
-          <button
-            onClick={() => setMultiplyText(mt => mt + 1)}
-            className='btn border border-green-500'
-          >
-            <MdArrowDropUp className='text-2xl' />
-          </button>
-        </div>
+        <Option
+          setOption={setFontSize}
+          displayValue={`Font Size: ${fontSize}px`}
+        />
+        <Option
+          setOption={setLineHeight}
+          displayValue={`Spacing: ${lineHeight}px`}
+        />
+        <Option
+          setOption={setMultiplyText}
+          displayValue={`Multiply Text: ${multiplyText}x`}
+        />
 
         <button
           onClick={() => setGrayscale(!grayscale)}
