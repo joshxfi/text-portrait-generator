@@ -14,11 +14,6 @@ const Output: React.FC<OutputProps> = ({
 
   return (
     <div className='w-full h-full flex items-center justify-center bg-black overflow-hidden shadow-lg'>
-      {!textBg && (
-        <div className='text-gray-200'>
-          <p>Start Typing...</p>
-        </div>
-      )}
       <p
         style={{
           backgroundImage: `url(${photoUrl})`,
@@ -28,11 +23,15 @@ const Output: React.FC<OutputProps> = ({
         }}
         className={`${
           grayscale && 'grayscale'
-        } leading-[10px] bg-clip-text bg-fixed bg-cover bg-no-repeat bg-center`}
+        } leading-[10px] bg-clip-text bg-fixed bg-cover bg-no-repeat bg-center text-justify md:text-left`}
       >
         {Array(showFull ? 100 : multiplyText)
           .fill(0)
-          .map(() => textBg)}
+          .map(
+            () =>
+              textBg ||
+              'Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye'
+          )}
       </p>
     </div>
   );
