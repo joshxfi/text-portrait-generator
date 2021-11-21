@@ -4,10 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.p-bg {
-    --webkit-text-fill-color: rgba(255, 255, 255, 0.5);
-}
-
 body {
     background: #202225;
     font-family: 'Poppins', sans-serif;

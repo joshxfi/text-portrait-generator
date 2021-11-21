@@ -16,10 +16,11 @@ const App: React.FC = () => {
 
   return (
     <main className='flex mx-auto justify-center mt-8 space-x-4'>
-      <div className='p-8 bg-secondary text-gray-200 rounded-lg flex flex-col items-center w-[360px]'>
+      <div className='p-8 bg-secondary text-gray-200 rounded-lg flex flex-col items-center w-[360px] space-y-3'>
         <a
-          className='btn bg-green-600 w-full mb-3 hover:bg-green-600/90 hover:shadow-lg'
+          className='btn bg-green-600 w-full hover:bg-green-600/90 hover:shadow-lg'
           href='https://github.com/joshxfi/text-portrait-generator'
+          target='_blank'
           rel='noreferrer noopener'
         >
           <p>Star on GitHub</p>
@@ -50,14 +51,14 @@ const App: React.FC = () => {
           value={textBg}
           onChange={e => setTextBg(e.target.value)}
           placeholder='Input text background'
-          className='text-black mt-3 resize-none w-full outline none p-4 h-[250px] outline-none rounded-lg'
+          className='text-black resize-none w-full outline none p-4 h-[250px] outline-none rounded-lg'
         />
 
         <button
           onClick={() => canGenerate && setIsGenerated(true)}
           className={`${
             !canGenerate ? 'bg-gray-500 cursor-not-allowed' : 'primary-bg'
-          } btn w-full mt-3`}
+          } btn w-full`}
         >
           <p>Generate</p>
           <BsPenFill />
