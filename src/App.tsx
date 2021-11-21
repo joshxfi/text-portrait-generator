@@ -17,7 +17,7 @@ const App: React.FC = () => {
   const [textBg, setTextBg] = useState('');
   const [fontSize, setFontSize] = useState(16);
   const [lineHeight, setLineHeight] = useState(10);
-  const [multiplyText, setMultiplyText] = useState(1);
+  const [multiplyText, setMultiplyText] = useState(100);
 
   const [showFull, setShowFull] = useState(false);
   const [grayscale, setGrayscale] = useState(false);
@@ -39,15 +39,15 @@ const App: React.FC = () => {
     setTextBg('');
     setFontSize(16);
     setLineHeight(10);
-    setMultiplyText(1);
+    setMultiplyText(100);
     setGrayscale(false);
   };
 
   if (showFull) return <Output {...outputProps} />;
 
   return (
-    <main className='flex mx-auto items-center lg:justify-center mt-3 lg:mt-8 lg:space-x-4 space-y-4 lg:space-y-0 flex-col lg:flex-row lg:h-[690px]'>
-      <div className='p-8 bg-secondary text-gray-200 rounded-lg flex flex-col items-center w-[95%] h-full lg:w-[360px] space-y-2'>
+    <main className='flex mx-auto items-center justify-center lg:h-screen lg:space-x-4 space-y-4 lg:space-y-0 flex-col lg:flex-row pb-4 lg:pb-0'>
+      <div className='p-8 bg-secondary text-gray-200 rounded-lg flex flex-col items-center w-[95%] h-full lg:h-[690px] lg:w-[360px] space-y-2 mt-4 lg:mt-0'>
         <a
           className='btn bg-green-600  hover:bg-green-600/90 hover:shadow-lg'
           href='https://github.com/joshxfi/text-portrait-generator'
@@ -99,7 +99,7 @@ const App: React.FC = () => {
           displayValue={`Multiply Text: ${multiplyText}x`}
         />
 
-        <div className='space-x-3 flex w-full pt-4 lg:flex-col lg:space-x-0 lg:space-y-3'>
+        <div className='space-x-3 flex w-full lg:flex-col lg:space-x-0 lg:space-y-3'>
           <button
             onClick={() => setGrayscale(!grayscale)}
             className={`${
@@ -117,6 +117,8 @@ const App: React.FC = () => {
             <MdRestartAlt />
           </button>
         </div>
+
+        <p className='text-sm pt-4'>© Josh Daniel 2021 • All Rights Reserved</p>
       </div>
 
       <div
