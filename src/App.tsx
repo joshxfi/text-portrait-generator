@@ -1,20 +1,31 @@
 import React, { useState, useRef } from 'react';
 import Output from './components/Output';
-import { BsImageFill, BsEyeFill, BsPenFill } from 'react-icons/bs';
+import { BsImageFill, BsEyeFill, BsPenFill, BsStar } from 'react-icons/bs';
 
 const App: React.FC = () => {
-  const [file, setFile] = useState<File | null>(null);
-  const [showFull, setShowFull] = useState(false);
   const [textBg, setTextBg] = useState('');
+  const [showFull, setShowFull] = useState(false);
+  const [file, setFile] = useState<File | null>(null);
   const [isGenerated, setIsGenerated] = useState(false);
 
   const fileRef = useRef<HTMLInputElement>(null);
 
-  if (showFull) return <Output file={file} />;
- 
+  if (showFull) return <Output textBg={textBg} file={file} />;
+
+  const canGenerate = file && !isGenerated;
+
   return (
     <main className='flex mx-auto justify-center mt-8 space-x-4'>
       <div className='p-8 bg-secondary text-gray-200 rounded-lg flex flex-col items-center w-[360px]'>
+        <a
+          className='btn bg-green-600 w-full mb-3 hover:bg-green-600/90 hover:shadow-lg'
+          href='https://github.com/joshxfi/text-portrait-generator'
+          rel='noreferrer noopener'
+        >
+          <p>Star on GitHub</p>
+          <BsStar />
+        </a>
+
         <div className='flex justify-between w-full'>
           <button
             onClick={() => fileRef.current?.click()}
@@ -39,13 +50,13 @@ const App: React.FC = () => {
           value={textBg}
           onChange={e => setTextBg(e.target.value)}
           placeholder='Input text background'
-          className='text-black mt-3 resize-none w-full outline none p-4 h-[250px] outline-none'
-        ></textarea>
+          className='text-black mt-3 resize-none w-full outline none p-4 h-[250px] outline-none rounded-lg'
+        />
 
         <button
-          onClick={() => setIsGenerated(true)}
+          onClick={() => canGenerate && setIsGenerated(true)}
           className={`${
-            !file ? 'bg-gray-500 cursor-not-allowed' : 'primary-bg'
+            !canGenerate ? 'bg-gray-500 cursor-not-allowed' : 'primary-bg'
           } btn w-full mt-3`}
         >
           <p>Generate</p>
@@ -67,10 +78,10 @@ const App: React.FC = () => {
       <div
         className={`${
           !isGenerated && 'p-8'
-        } bg-secondary rounded-lg w-[600px] h-[600px] grid place-items-center overflow-hidden`}
+        } bg-secondary rounded-lg w-[650px] h-[650px] grid place-items-center overflow-hidden`}
       >
         {isGenerated ? (
-          <Output file={file} />
+          <Output textBg={textBg} file={file} />
         ) : (
           <p className='text-gray-200 text-2xl'>Text Portrait Generator</p>
         )}
