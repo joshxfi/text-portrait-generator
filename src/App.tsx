@@ -87,17 +87,16 @@ const App: React.FC = () => {
             className='text-black resize-none w-full outline none p-4 h-[250px] outline-none rounded-lg'
           />
 
-          <Option
-            setOption={setFontSize}
-            displayValue={`Font Size: ${fontSize}px`}
-          />
+          <Option setOption={setFontSize} value={fontSize} label='Font Size' />
           <Option
             setOption={setLineHeight}
-            displayValue={`Spacing: ${lineHeight}px`}
+            value={lineHeight}
+            label='Line Height'
           />
           <Option
             setOption={setMultiplyText}
-            displayValue={`Multiply Text: ${multiplyText}x`}
+            value={multiplyText}
+            label='Multiply Text'
           />
 
           <div className='space-x-3 flex w-full lg:flex-col lg:space-x-0 lg:space-y-3'>
